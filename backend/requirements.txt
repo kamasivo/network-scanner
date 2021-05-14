@@ -1,0 +1,11 @@
+pip install python-nmap
+pip install psycopg2.
+pip install -U flask-cors
+
+pip install scapy
+pip install python-geoip-geolite2
+
+pip install pandas
+
+pip install spam-lists
+
