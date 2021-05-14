@@ -1,19 +1,19 @@
-CREATE DATABASE db_name;
+CREATE DATABASE bp;
 
-CREATE TABLE public.devices
-(
-    ip_address text COLLATE pg_catalog."default",
-    os text COLLATE pg_catalog."default",
-    name text COLLATE pg_catalog."default",
-    vendor text COLLATE pg_catalog."default",
-    num_of_vulns bigint,
-    od_family text COLLATE pg_catalog."default",
-    os_gen text COLLATE pg_catalog."default",
-    open_ports bigint
-)
+CREATE TABLE public.devices (
+  "id" SERIAL PRIMARY KEY,
+  "ip_address" VARCHAR (255),
+  "os" VARCHAR (255),
+  "name" VARCHAR (255),
+  "vendor" VARCHAR (255),
+  "num_of_vulns" int,
+  "os_family" VARCHAR (255),
+  "os_gen" VARCHAR (255),
+  "open_ports" int
+);
 
-CREATE TABLE public.ports
-(
-    ip_address "char"[],
-    port_number bigint
-)
+CREATE TABLE public.ports (
+  "id" int PRIMARY KEY,
+  "port_number" int,
+  "ip_address" VARCHAR (255)
+);
