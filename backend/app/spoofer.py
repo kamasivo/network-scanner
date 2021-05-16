@@ -56,7 +56,7 @@ def spoofer():
     gateway = "192.168.1.1"             # set gateway IP address
     # eth0 - lan cable
     # wlan0 - wifi
-    interface = "wlan0"                 # set interface using on local device
+    interface = "eth0"                 # set interface using on local device
     attacker_MAC = get_if_hwaddr(interface)
     targets = []
     threads = []

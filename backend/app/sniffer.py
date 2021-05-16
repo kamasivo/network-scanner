@@ -33,7 +33,7 @@ def is_in_ipadresses(ipAddressFrom, ipAddressTo):
 
 # main sniffer function, pkt is packed which arrived on network card
 def network_sniffer(pkt):
-    interface = "wlan0"                         # set used interface (wlan0 is wifi)
+    interface = "eth0"                         # set used interface (wlan0 is wifi)
     myMac = get_if_hwaddr(interface)
     if(pkt[Ether].src == myMac):                # no check packet if src mac is yours
         return
@@ -95,4 +95,4 @@ def sniffer():
     global ipAdresses
     ipAdresses = [[]]                                       # clear global variables
     load_layer("tls")                                       # count packets with tls connection too
-    sniff(prn=network_sniffer, iface="wlan0", store=0)      # start sniffing on interface wlan0, no store any packet localy
+    sniff(prn=network_sniffer, iface="eth0", store=0)      # start sniffing on interface wlan0, no store any packet localy
