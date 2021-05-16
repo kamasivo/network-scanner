@@ -75,17 +75,17 @@
     },
     methods: {
       loadDevices: async function() {
-        const res = await fetch("http://localhost:5000/api/devices");
+        const res = await fetch("http://192.168.1.250:5000/api/devices");
         const obj = await res.json();
         this.devices = obj.data;
       },
       refreshPackets: async function() {
-        const res = await fetch("http://localhost:5000/api/packets");
+        const res = await fetch("http://192.168.1.250:5000/api/packets");
         const obj = await res.json();
         this.packets = obj.data;
       },
       refreshIp: async function() {
-        const res = await fetch("http://localhost:5000/api/ipAddresses");
+        const res = await fetch("http://192.168.1.250:5000/api/ipAddresses");
         const obj = await res.json();
         this.ipAddresses = obj.data;
 

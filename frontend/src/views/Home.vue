@@ -55,13 +55,13 @@ export default {
     refresh: async function() {
       this.devices = ''
       this.btnText = 'Scanning the network ...'
-      const res = await fetch("http://localhost:5000/api/refresh_devices");
+      const res = await fetch("http://192.168.1.250:5000/api/refresh_devices");
       const obj = await res.json();
       this.devices = obj.data;
       this.btnText = 'Refresh'
     },
     loadDevices: async function() {
-        const res = await fetch("http://localhost:5000/api/devices");
+        const res = await fetch("http://192.168.1.250:5000/api/devices");
         const obj = await res.json();
         this.devices = obj.data;
       },

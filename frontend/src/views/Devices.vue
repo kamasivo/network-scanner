@@ -59,14 +59,14 @@
     },
     methods: {
       loadVulnerabilites: async function() {
-        const res = await fetch("http://localhost:5000/api/vulns");
+        const res = await fetch("http://192.168.1.250:5000/api/vulns");
         const obj = await res.json();
         this.handleData(obj)
       },
     refresh: async function() {
       this.result = ''
       this.btnText = 'Scanning the network for vulnerabilities ...'
-      const res = await fetch("http://localhost:5000/api/refresh_vulns");
+      const res = await fetch("http://192.168.1.250:5000/api/refresh_vulns");
       const obj = await res.json();
       this.handleData(obj)
       this.btnText = 'Refresh'

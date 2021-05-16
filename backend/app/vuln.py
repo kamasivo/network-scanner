@@ -21,5 +21,5 @@ def find_vulnerabilities():
                     vuln_list.append([host, port, nmScan[host]['tcp'][port]["state"], 
                     nmScan[host]['tcp'][port]["name"], nmScan[host]['tcp'][port]["product"], ""]) 
         vuln_list.append([host, "", "", "", "", ""]) 
-    panda.DataFrame(vuln_list, columns=['ipAddress', 'port', 'state', 'name', 'product', 'script']).to_json("networkdata/vulns.json", orient="table")
+    panda.DataFrame(vuln_list, columns=['ipAddress', 'port', 'state', 'name', 'product', 'script']).to_json("/home/kali/project/network-scanner/backend/app/networkdata/vulns.json", orient="table")
 

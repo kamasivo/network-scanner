@@ -57,10 +57,10 @@ def network_sniffer(pkt):
                     print('IP found on blacklist')
                     onBlacklist = True
                 ipAdresses.append([pkt[IP].dst, pkt[IP].src, 0, 1, onBlacklist])
-        panda.DataFrame(ipAdresses, columns=['ipAddressLocal', 'ipAddressForeign', 'sendPackets', 'receivedPackets', 'blackList']).to_json("networkdata/ipAdresses.json", orient="table")
+        panda.DataFrame(ipAdresses, columns=['ipAddressLocal', 'ipAddressForeign', 'sendPackets', 'receivedPackets', 'blackList']).to_json("/home/kali/project/network-scanner/backend/app/networkdata/ipAdresses.json", orient="table")
     
     if (pkt.haslayer(TCP)):
-        with open('networkdata/packets.json', 'r+') as f:
+        with open('/home/kali/project/network-scanner/backend/app/networkdata/packets.json', 'r+') as f:
             data = json.load(f)
             global tcpPackets 
             tcpPackets += 1
@@ -69,7 +69,7 @@ def network_sniffer(pkt):
             json.dump(data, f, indent=4)
             f.truncate()     
     if (pkt.haslayer(UDP)):
-        with open('networkdata/packets.json', 'r+') as f:
+        with open('/home/kali/project/network-scanner/backend/app/networkdata/packets.json', 'r+') as f:
             data = json.load(f)
             global udpPackets 
             udpPackets += 1
@@ -78,7 +78,7 @@ def network_sniffer(pkt):
             json.dump(data, f, indent=4)
             f.truncate()     
     if (pkt.haslayer(ICMP)):
-        with open('networkdata/packets.json', 'r+') as f:
+        with open('/home/kali/project/network-scanner/backend/app/networkdata/packets.json', 'r+') as f:
             data = json.load(f)
             global icmpPackets 
             icmpPackets += 1
@@ -90,7 +90,7 @@ def network_sniffer(pkt):
 # this function is called once on startup of flask
 def sniffer():
     print("Network packet counter started.")
-    with open('networkdata/ipAdresses.json', 'r+') as f:    # clear file 
+    with open('/home/kali/project/network-scanner/backend/app/networkdata/ipAdresses.json', 'r+') as f:    # clear file 
         f.truncate(0)
     global ipAdresses
     ipAdresses = [[]]                                       # clear global variables
